@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="Shift-JIS">
   <title>Collective Intelligence HHlab</title>
   <script data-main="js/demo" src="js/require-jquery.js"></script>
   <link rel="stylesheet" href="css/style.css">
@@ -13,7 +13,11 @@
     <p>JavaScript B</p>
   </header>
 
-  <nav>
+  <nav class="clearfix">
+    <ul>
+      <li><a href="#chapter2">2章 推薦を行う</a></li>
+      <li><a href="#chapter5">5章 最適化</a></li>
+    </ul>
   </nav>
 
   <section id="chapter2">
@@ -108,6 +112,51 @@
         <legend>method</legend>
         <label><input type="radio" name="method" value="sim_distance">sim_distance</label>
         <label><input type="radio" name="method" value="sim_pearson" checked="checked">sim_pearson</label>
+      </fieldset>
+      <input type="submit">
+    </form>
+  </section>
+
+  <section id="chapter5">
+    <h1>5章 最適化</h1>
+    <form id="demo-form-chapter5">
+      <fieldset>
+        <pre name="c00_expression">[4, 4, 4, 2, 2, 6, 6, 5, 5, 6, 6, 0]</pre>
+      </fieldset>
+      <fieldset>
+        <table>
+          <tr>
+            <td class="name">Seymour</td>
+            <td>行:<input type="text" name="c00_input_seymour_out" value="4"></td>
+            <td>帰:<input type="text" name="c00_input_seymour_ret" value="4"></td>
+            <td class="name">Franny</td>
+            <td>行:<input type="text" name="c00_input_franny_out" value="4"></td>
+            <td>帰:<input type="text" name="c00_input_franny_ret" value="2"></td>
+            <td class="name">Zooey</td>
+            <td>行:<input type="text" name="c00_input_zooey_out" value="2"></td>
+            <td>帰:<input type="text" name="c00_input_zooey_ret" value="6"></td>
+          </tr>
+          <tr>
+            <td class="name">Walt</td>
+            <td>行:<input type="text" name="c00_input_walt_out" value="6"></td>
+            <td>帰:<input type="text" name="c00_input_walt_ret" value="5"></td>
+            <td class="name">Buddy</td>
+            <td>行:<input type="text" name="c00_input_buddy_out" value="5"></td>
+            <td>帰:<input type="text" name="c00_input_buddy_ret" value="6"></td>
+            <td class="name">Les</td>
+            <td>行:<input type="text" name="c00_input_les_out" value="6"></td>
+            <td>帰:<input type="text" name="c00_input_les_ret" value="0"></td>
+          </tr>
+        </table>
+      </fieldset>
+      <fieldset>
+        <legend>5.2 printschedule</legend>
+        <table name="c20_result">
+        </table>
+      </fieldset>
+      <fieldset>
+        <legend>5.3 schedulecost</legend>
+        <p name="c30_result"></p>
       </fieldset>
       <input type="submit">
     </form>
