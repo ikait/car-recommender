@@ -121,44 +121,72 @@
     <h1>5章 最適化</h1>
     <form id="demo-form-chapter5">
       <fieldset>
-        <pre name="c00_expression">[4, 4, 4, 2, 2, 6, 6, 5, 5, 6, 6, 0]</pre>
-      </fieldset>
-      <fieldset>
+        <legend>5.2 printschedule / 5.3 schedulecost</legend>
+        <pre name="c20_result_answer"></pre>
+        <table name="c20_result"></table>
+        <p name="c30_result"></p>
+        <input type="submit" name="c20_submit">
         <table>
           <tr>
             <td class="name">Seymour</td>
-            <td>行:<input type="text" name="c00_input_seymour_out" value="4"></td>
-            <td>帰:<input type="text" name="c00_input_seymour_ret" value="4"></td>
+            <td>行:<input type="text" name="c20_input_seymour_out" value="4"></td>
+            <td>帰:<input type="text" name="c20_input_seymour_ret" value="4"></td>
             <td class="name">Franny</td>
-            <td>行:<input type="text" name="c00_input_franny_out" value="4"></td>
-            <td>帰:<input type="text" name="c00_input_franny_ret" value="2"></td>
+            <td>行:<input type="text" name="c20_input_franny_out" value="4"></td>
+            <td>帰:<input type="text" name="c20_input_franny_ret" value="2"></td>
             <td class="name">Zooey</td>
-            <td>行:<input type="text" name="c00_input_zooey_out" value="2"></td>
-            <td>帰:<input type="text" name="c00_input_zooey_ret" value="6"></td>
+            <td>行:<input type="text" name="c20_input_zooey_out" value="2"></td>
+            <td>帰:<input type="text" name="c20_input_zooey_ret" value="6"></td>
           </tr>
           <tr>
             <td class="name">Walt</td>
-            <td>行:<input type="text" name="c00_input_walt_out" value="6"></td>
-            <td>帰:<input type="text" name="c00_input_walt_ret" value="5"></td>
+            <td>行:<input type="text" name="c20_input_walt_out" value="6"></td>
+            <td>帰:<input type="text" name="c20_input_walt_ret" value="5"></td>
             <td class="name">Buddy</td>
-            <td>行:<input type="text" name="c00_input_buddy_out" value="5"></td>
-            <td>帰:<input type="text" name="c00_input_buddy_ret" value="6"></td>
+            <td>行:<input type="text" name="c20_input_buddy_out" value="5"></td>
+            <td>帰:<input type="text" name="c20_input_buddy_ret" value="6"></td>
             <td class="name">Les</td>
-            <td>行:<input type="text" name="c00_input_les_out" value="6"></td>
-            <td>帰:<input type="text" name="c00_input_les_ret" value="0"></td>
+            <td>行:<input type="text" name="c20_input_les_out" value="6"></td>
+            <td>帰:<input type="text" name="c20_input_les_ret" value="0"></td>
           </tr>
         </table>
       </fieldset>
       <fieldset>
-        <legend>5.2 printschedule</legend>
-        <table name="c20_result">
-        </table>
+        <legend>5.4 randomoptimize</legend>
+        <pre name="c40_result_answer"></pre>
+        <table name="c40_result_table"></table>
+        <p name="c40_result_cost"></p>
+        <input type="submit" name="c40_submit">
       </fieldset>
       <fieldset>
-        <legend>5.3 schedulecost</legend>
-        <p name="c30_result"></p>
+        <legend>5.5 hillclimb</legend>
+        <pre name="c50_result_answer"></pre>
+        <table name="c50_result_table"></table>
+        <p name="c50_result_cost"></p>
+        <input type="submit" name="c50_submit">
       </fieldset>
-      <input type="submit">
+      <fieldset>
+        <legend>5.6 annealingoptimize</legend>
+        <pre name="c60_result_answer"></pre>
+        <table name="c60_result_table"></table>
+        <p name="c60_result_cost"></p>
+        <input type="submit" name="c60_submit">
+        T:<input type="text" name="c60_t" value="10000.0">
+        cool:<input type="text" name="c60_cool" value="0.95">
+        step:<input type="text" name="c60_step" value="1">
+      </fieldset>
+      <fieldset>
+        <legend>5.7 geneticoptimize</legend>
+        <pre name="c70_result_answer"></pre>
+        <table name="c70_result_table"></table>
+        <p name="c70_result_cost"></p>
+        <input type="submit" name="c70_submit">
+        popsize:<input type="text" name="c70_popsize" value="50">
+        step:<input type="text" name="c70_step" value="1">
+        mutprob:<input type="text" name="c70_mutprob" value="0.2">
+        elite:<input type="text" name="c70_elite" value="0.2">
+        maxiter:<input type="text" name="c70_maxiter" value="100">
+      </fieldset>
     </form>
   </section>
 

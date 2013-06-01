@@ -100,12 +100,16 @@ pre {
   width: 100%;
 }
 
-#chapter5 pre[name="c00_expression"] {
+#chapter5 pre[name*="_result_answer"] {
   margin: 0;
   padding: 10px;
   text-align: center;
 }
 
-#chapter5 input[name*="c00_input"] {
+#chapter5 input[name*="_input"] {
   width: 30px;
+}
+
+#chapter5 input[name*="c70"][type="text"] {
+  width: 40px;
 }
