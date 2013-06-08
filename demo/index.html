@@ -171,9 +171,15 @@
         <table name="c60_result_table"></table>
         <p name="c60_result_cost"></p>
         <input type="submit" name="c60_submit">
-        T:<input type="text" name="c60_t" value="10000.0">
-        cool:<input type="text" name="c60_cool" value="0.95">
-        step:<input type="text" name="c60_step" value="1">
+        <label title="温度">
+          T:<input type="text" name="c60_t" value="10000.0">
+        </label>
+        <label title="冷却率">
+          cool:<input type="text" name="c60_cool" value="0.95">
+        </label>
+        <label title="インデックスの値に加える変更の値(絶対値)">
+          step:<input type="text" name="c60_step" value="1">
+        </label>
       </fieldset>
       <fieldset>
         <legend>5.7 geneticoptimize</legend>
@@ -181,11 +187,21 @@
         <table name="c70_result_table"></table>
         <p name="c70_result_cost"></p>
         <input type="submit" name="c70_submit">
-        popsize:<input type="text" name="c70_popsize" value="50">
-        step:<input type="text" name="c70_step" value="1">
-        mutprob:<input type="text" name="c70_mutprob" value="0.2">
-        elite:<input type="text" name="c70_elite" value="0.2">
-        maxiter:<input type="text" name="c70_maxiter" value="100">
+        <label title="個体群の大きさ">
+          popsize:<input type="text" name="c70_popsize" value="50">
+        </label>
+        <label title="突然変異時にどの程度変異するか">
+          step:<input type="text" name="c70_step" value="1">
+        </label>
+        <label title="次世代群のメンバー中、突然変異で作るものの割合（残りは交叉）">
+          mutprob:<input type="text" name="c70_mutprob" value="0.2">
+        </label>
+        <label title="個体群中で良いかいとみなされ通過できるものの割合">
+          elite:<input type="text" name="c70_elite" value="0.2">
+        </label>
+        <label title="計算を行う世代数">
+          maxiter:<input type="text" name="c70_maxiter" value="100">
+        </label>
       </fieldset>
     </form>
   </section>
