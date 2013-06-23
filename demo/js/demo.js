@@ -1,16 +1,16 @@
-require(["jquery", "jquery.tabs", "../../lib/main"], function($) {
+require(["jquery", "jquery.tabs", "ccchart", "../../lib/main"], function($) {
   $(function() {
 
-    // ƒ^ƒu
+    // ã‚¿ãƒ–
     $("nav").tabs();
 
-    // 2Í
+    // 2ç« 
     var chapter2 = (function () {
 
       // Recommendations
       var recommendations = new Recommendations();
 
-      // 2Í‚ªsubmit‚³‚ê‚½‚Æ‚«‚ÉŒvZ‚·‚é
+      // 2ç« ãŒsubmitã•ã‚ŒãŸã¨ãã«è¨ˆç®—ã™ã‚‹
       $('#demo-form-chapter2').on('submit', function (e) {
         e.preventDefault();
 
@@ -50,7 +50,7 @@ require(["jquery", "jquery.tabs", "../../lib/main"], function($) {
         $('[name="c72_result"]', this).first().html(c72_result.join('<br>'));
       });
 
-      // textarea‚É“ü—Í‚³‚ê‚½json‚©‚çƒIƒvƒVƒ‡ƒ“‚ğì‚é
+      // textareaã«å…¥åŠ›ã•ã‚ŒãŸjsonã‹ã‚‰ã‚ªãƒ—ã‚·ãƒ§ãƒ³ã‚’ä½œã‚‹
       var initOption = (function ($form) {
         var f = function () {
           var source = JSON.parse( $('[name="source"]', $form).first().val() ) || '';
@@ -64,13 +64,13 @@ require(["jquery", "jquery.tabs", "../../lib/main"], function($) {
         return f;
       }());
 
-      // textarea‚ª•ÏX‚³‚ê‚½‚Æ‚«AƒIƒvƒVƒ‡ƒ“‚ğì‚è’¼‚·
+      // textareaãŒå¤‰æ›´ã•ã‚ŒãŸã¨ãã€ã‚ªãƒ—ã‚·ãƒ§ãƒ³ã‚’ä½œã‚Šç›´ã™
       $( $('[name="source"]').first() ).on('keyup change', function (e) {
         initOption( $(this).closest('form') );
       });
     }());
 
-    // 5Í
+    // 5ç« 
     var chapter5 = (function () {
 
       // Optimization
@@ -79,8 +79,8 @@ require(["jquery", "jquery.tabs", "../../lib/main"], function($) {
       // domain
       var domain = (function () {
 
-        // domain‚ÌŒÂ”‚É‚Â‚¢‚ÄA‹³‰È‘‚É‚Í8‚Æ‘‚¢‚Ä‚ ‚é‚Ì‚Å‚·‚ªA
-        // schedule.txt‚É‚Í10ŒÂ‚ÌƒXƒPƒWƒ…[ƒ‹‚ª‚ ‚è(ˆ0`9)A³‚µ‚­‚Í9‚¾‚Æv‚í‚ê‚Ü‚·
+        // domainã®å€‹æ•°ã«ã¤ã„ã¦ã€æ•™ç§‘æ›¸ã«ã¯8ã¨æ›¸ã„ã¦ã‚ã‚‹ã®ã§ã™ãŒã€
+        // schedule.txtã«ã¯10å€‹ã®ã‚¹ã‚±ã‚¸ãƒ¥ãƒ¼ãƒ«ãŒã‚ã‚Š(âˆ´0ã€œ9)ã€æ­£ã—ãã¯9ã ã¨æ€ã‚ã‚Œã¾ã™
         var domain = [], p = [0, 9];
         for (var i = 0, j = optimization.people.length * 2; i < j; i += 1) {
           domain.push(p);
@@ -88,7 +88,7 @@ require(["jquery", "jquery.tabs", "../../lib/main"], function($) {
         return domain;
       }());
 
-      // Œ‹‰Ê‚ğo—Í‚·‚éƒRƒ“ƒXƒgƒ‰ƒNƒ^
+      // çµæœã‚’å‡ºåŠ›ã™ã‚‹ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
       var Demo = function (o) {
         this.answer = o.answer;
         this.$answer = o.$answer;
@@ -97,11 +97,11 @@ require(["jquery", "jquery.tabs", "../../lib/main"], function($) {
         this.optimization = o.optimization || optimization;
       };
 
-      Demo.prototype._getExpression = function () {
+      Demo.prototype.getExpression = function () {
         return '[' + this.answer.join(', ') + ']';
       };
 
-      Demo.prototype._getTimeTable = function () {
+      Demo.prototype.getTimeTable = function () {
         var o = this.optimization.getschedule(this.answer);
         var $table = $('<table>'), $tr = $('<tr>'), $td = $('<td>');
         for (var i in o) {
@@ -121,22 +121,167 @@ require(["jquery", "jquery.tabs", "../../lib/main"], function($) {
         return $table.html();
       };
 
-      Demo.prototype._getScheduleCost = function () {
+      Demo.prototype.getScheduleCost = function () {
         return this.optimization.schedulecost(this.answer);
       };
 
       Demo.prototype.export = function () {
-        this.$answer.html(this._getExpression());
-        this.$table.html(this._getTimeTable());
-        this.$cost.html(this._getScheduleCost());
+        this.$answer.html(this.getExpression());
+        this.$table.html(this.getTimeTable());
+        this.$cost.html(this.getScheduleCost());
       };
 
-      // 5Í‚Ì‚¢‚¸‚ê‚©‚Ìƒ{ƒ^ƒ“‚ªclick‚³‚ê‚½‚Æ‚«‚ÉŒvZ
-      $('#demo-form-chapter5').on('click', '[name*=submit]', function (e) {
+      // ãƒãƒ£ãƒ¼ãƒˆç”Ÿæˆ
+      var drawChart, Chart = function () {
+        var method = {
+          "geneticoptimize": {
+            "use": $("[type=checkbox][name*=geneticoptimize]").attr('checked'),
+            "name": "éºä¼ã‚¢ãƒ«",
+            "colorSet": "rgba(200, 220, 250, 0.9)",
+            "push": function () {
+              var t = new Demo({answer: optimization.geneticoptimize(domain, optimization.schedulecost,
+                $('[name="c70_popsize"]').val(), $('[name="c70_step"]').val(),
+                $('[name="c70_mutprob"]').val(), $('[name="c70_elite"]').val(),
+                $('[name="c70_maxiter"]').val())
+              });
+              return t.getScheduleCost();
+            },
+            "showAve": function (ave) {
+              $("[name=ave_geneticoptimize]").val(ave);
+            }
+          },
+          "annealingoptimize": {
+            "use": $("[type=checkbox][name*=annealingoptimize]").attr('checked'),
+            "name": "æ¨¡æ“¬ã‚¢ãƒ‹",
+            "colorSet": "rgba(56, 127, 47, 0.9)",
+            "push": function () {
+              var t = new Demo({
+                answer: optimization.annealingoptimize(domain, optimization.schedulecost,
+                $('[name="c60_T"]').val(), $('[name="c60_cool"]').val(),
+                $('[name="c60_step"]').val(), $('[name="c60_count"]').val())
+              });
+              return t.getScheduleCost();
+            },
+            "showAve": function (ave) {
+              $("[name=ave_annealingoptimize]").val(ave);
+            }
+          },
+          "hillclimb": {
+            "use": $("[type=checkbox][name*=hillclimb]").attr('checked'),
+            "name": "ãƒ’ãƒ«ã‚¯ãƒ©",
+            "colorSet": "rgba(125, 107, 147, 0.9)",
+            "push": function () {
+              var t = new Demo({answer: optimization.hillclimb(domain, optimization.schedulecost)});
+              return t.getScheduleCost();
+            },
+            "showAve": function (ave) {
+              $("[name=ave_hillclimb]").val(ave);
+            }
+          },
+          "randomoptimize": {
+            "use": $("[type=checkbox][name*=randomoptimize]").attr('checked'),
+            "name": "ãƒ©ãƒ³ãƒ€ãƒ ",
+            "colorSet": "rgba(208, 128, 50, 0.9)",
+            "push": function () {
+              var t = new Demo({answer: optimization.randomoptimize(domain, optimization.schedulecost)});
+              return t.getScheduleCost();
+            },
+            "showAve": function (ave) {
+              $("[name=ave_randomoptimize]").val(ave);
+            }
+          }
+        };
+        var i = 1, data = (function () {
+          var data = [["è©¦è¡Œå›æ•°"]];
+          for (var i in method) {
+            if (method[i].use) {
+              data.push([method[i].name]);
+            }
+          }
+          return data;
+        }());
+        for (var m in method) {
+          if (method[m].use) {
+            method[m].index = i;
+            i += 1;
+          }
+        }
+        var timer, f, j = 1;
+        return function (i) {
+          if (!f) {
+            if (i - 0 === 0) {
+              f = 0;
+              draw();
+              if (timer) clearInterval(timer);
+            } else {
+              f = 1;
+              timer = setInterval(draw, i * 1000);
+            }
+          } else {
+            f = 0;
+            clearInterval(timer);
+          }
+          function draw() {
+            data[0].push(j++);
+            for (var m in method) {
+              if (method[m].use) {
+
+                // 100å€‹ã‚’è¶…ãˆãŸã‚‰å‰ã‹ã‚‰æ¨ã¦ã¦ã„ã
+                if (data[method[m].index].length > 100) {
+                  data[method[m].index].splice(1, 1);
+                }
+                data[method[m].index].push(method[m].push());
+
+                for (var x = 1, y = data[method[m].index].length, z = 0; x < y; x += 1 ) {
+                  z += data[method[m].index][x];
+                }
+                method[m].showAve(z / y);
+              }
+            }
+            var chartData = {
+              "config": {
+                "lineWidth": 2,
+                "bg": "white",
+                "useMarker": "css-ring",
+                "markerWidth": 6,
+                "shadows": {"all": "none"},
+                "useToolTip": "yes",
+                "colorSet": (function () {
+                  var r = [];
+                  for (var i in method) {
+                    if (method[i].use) {
+                      r.push(method[i].colorSet);
+                    }
+                  }
+                  return r;
+                }()),
+                "textColors": {"all": "#333"},
+                "width": 636,
+                "height": 400
+              },
+              "data": data
+            };
+            ccchart.init('chart', chartData);
+          };
+        };
+      };
+
+      // 5ç« ã®ã„ãšã‚Œã‹ã®ãƒœã‚¿ãƒ³ãŒclickã•ã‚ŒãŸã¨ãã«è¨ˆç®—
+      $('#demo-form-chapter5').on('click', '[name*=chart_use_]', function (e) {
+        drawChart(0);
+        drawChart = Chart();
+        $('[name=*"ave_"]').val('');
+      }).on('click', '[type=submit]', function (e) {
         e.preventDefault();
 
-        // ”Ô†‚É‚æ‚Á‚Ä•ªŠò‚³‚¹‚é
+        // ç•ªå·ã«ã‚ˆã£ã¦åˆ†å²ã•ã›ã‚‹
         switch ($(this).attr('name')) {
+
+          // ãƒãƒ£ãƒ¼ãƒˆç”Ÿæˆ
+          case "chart_draw":
+            if (!drawChart) drawChart = Chart();
+            drawChart($(this).prev().val());
+            break;
 
           // 5.2, 5.3
           case "c20_submit":
@@ -202,9 +347,68 @@ require(["jquery", "jquery.tabs", "../../lib/main"], function($) {
             });
             c70.export();
             break;
-        }
 
+          case "c100_submit":
+            var socialnetwork = new Socialnetwork();
+            var sol;
+            $(this).siblings().find('input').each(function () {
+              if ($(this).attr('checked')) {
+                sol = optimization[$(this).val()](socialnetwork.domain, socialnetwork.crosscount.bind(socialnetwork));
+              }
+            });
+            $('[name="c100_result_cost"]').html(socialnetwork.crosscount.call(socialnetwork, sol));
+            socialnetwork.drawnetwork(sol, 'network');
+            break;
+        }
       });
+    }());
+
+    // 11ç« 
+    var chapter11 = (function () {
+
+      // p.277
+      var gp = new Gp();
+      var exampletree = new gp.exampletree();
+
+      // p.277
+      console.log( exampletree.evaluate([2, 3]) );
+      console.log( exampletree.evaluate([5, 3]) );
+
+      // p.278
+      exampletree.display();
+
+      // p.279
+      var random1 = new gp.makerandomtree(2);
+      console.log( random1.evaluate([7, 1]) );
+      console.log( random1.evaluate([2, 4]) );
+
+      var random2 = new gp.makerandomtree(2);
+      console.log( random1.evaluate([5, 3]) );
+      console.log( random1.evaluate([5, 20]) );
+
+      // p.281,2
+      // var hiddenset = gp.buildhiddenset();
+      // console.log( gp.scorefunction(random1, hiddenset) );
+      // console.log( gp.scorefunction(random2, hiddenset) );
+
+      // p.284
+      // random2.display();
+      // var muttree = new gp.mutate(random2, 2);
+      // muttree.display();
+
+      // p.285
+      // console.log( gp.scorefunction(random2, hiddenset) );
+      // console.log( gp.scorefunction(muttree, hiddenset) );
+
+      // p.286
+      // var random1 = new gp.makerandomtree(2);
+      // random1.display();
+      // var random2 = new gp.makerandomtree(2);
+      // random2.display();
+      // var cross = new gp.crossover(random1, random2, '', 0);
+      // cross.display();
+
+
     }());
 
   });

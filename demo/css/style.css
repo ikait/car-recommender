@@ -1,6 +1,6 @@
 ﻿body {
   margin: 0 auto;
-  width: 600px;
+  width: 700px;
 }
 
 nav ul {
@@ -100,6 +100,10 @@ pre {
   width: 100%;
 }
 
+#chapter5 #chart {
+  width: 100%;
+}
+
 #chapter5 pre[name*="_result_answer"] {
   margin: 0;
   padding: 10px;
@@ -110,6 +114,11 @@ pre {
   width: 30px;
 }
 
+#chapter5 input[name*="c60"][type="text"],
 #chapter5 input[name*="c70"][type="text"] {
   width: 40px;
+}
+
+#chapter5 input[name*="ave_"] {
+  font-size: 16px;
 }
