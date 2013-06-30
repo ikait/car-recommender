@@ -371,43 +371,51 @@ require(["jquery", "jquery.tabs", "ccchart", "../../lib/main"], function($) {
       var exampletree = new gp.exampletree();
 
       // p.277
-      console.log( exampletree.evaluate([2, 3]) );
-      console.log( exampletree.evaluate([5, 3]) );
+      // console.log( exampletree.evaluate([2, 3]) );
+      // console.log( exampletree.evaluate([5, 3]) );
 
       // p.278
-      exampletree.display();
+      // exampletree.display();
 
       // p.279
       var random1 = new gp.makerandomtree(2);
-      console.log( random1.evaluate([7, 1]) );
-      console.log( random1.evaluate([2, 4]) );
+      // console.log( random1.evaluate([7, 1]) );
+      // console.log( random1.evaluate([2, 4]) );
 
       var random2 = new gp.makerandomtree(2);
-      console.log( random1.evaluate([5, 3]) );
-      console.log( random1.evaluate([5, 20]) );
+      // console.log( random2.evaluate([5, 3]) );
+      // console.log( random2.evaluate([5, 20]) );
 
       // p.281,2
-      // var hiddenset = gp.buildhiddenset();
+      var hiddenset = gp.buildhiddenset();
       // console.log( gp.scorefunction(random1, hiddenset) );
       // console.log( gp.scorefunction(random2, hiddenset) );
 
       // p.284
+      // console.log("random2.display()");
       // random2.display();
-      // var muttree = new gp.mutate(random2, 2);
+
+      // console.log("var muttree = gp.mutate(random2, 2);");
+      var muttree = new gp.mutate(random2, 2);
       // muttree.display();
 
       // p.285
-      // console.log( gp.scorefunction(random2, hiddenset) );
-      // console.log( gp.scorefunction(muttree, hiddenset) );
+      console.log( "// score (p.285)" );
+      console.log( "random2:", gp.scorefunction(random2, hiddenset) );
+      console.log( "muttree:", gp.scorefunction(muttree, hiddenset) );
 
       // p.286
       // var random1 = new gp.makerandomtree(2);
+      // console.log(random1);
       // random1.display();
-      // var random2 = new gp.makerandomtree(2);
-      // random2.display();
-      // var cross = new gp.crossover(random1, random2, '', 0);
-      // cross.display();
 
+      // var random2 = new gp.makerandomtree(2);
+      // console.log(random2);
+      // random2.display();
+
+      // var cross = new gp.crossover(random1, random2, undefined, 0);
+      // console.log(cross);
+      // cross.display();
 
     }());
 
