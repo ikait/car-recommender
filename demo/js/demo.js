@@ -366,56 +366,68 @@ require(["jquery", "jquery.tabs", "ccchart", "../../lib/main"], function($) {
     // 11章
     var chapter11 = (function () {
 
-      // p.277
-      var gp = new Gp();
-      var exampletree = new gp.exampletree();
+      $("#demo-form-chapter11").on('click', "[name=eval]", function (e) {
+        e.preventDefault();
 
-      // p.277
-      // console.log( exampletree.evaluate([2, 3]) );
-      // console.log( exampletree.evaluate([5, 3]) );
+        // p.277
+        var gp = new Gp();
+        var exampletree = new gp.exampletree();
 
-      // p.278
-      // exampletree.display();
+        // p.277
+        // console.log( exampletree.evaluate([2, 3]) );
+        // console.log( exampletree.evaluate([5, 3]) );
 
-      // p.279
-      var random1 = new gp.makerandomtree(2);
-      // console.log( random1.evaluate([7, 1]) );
-      // console.log( random1.evaluate([2, 4]) );
+        // p.278
+        // exampletree.display();
 
-      var random2 = new gp.makerandomtree(2);
-      // console.log( random2.evaluate([5, 3]) );
-      // console.log( random2.evaluate([5, 20]) );
+        // p.279
+        // var random1 = new gp.makerandomtree(2);
+        // console.log( random1.evaluate([7, 1]) );
+        // console.log( random1.evaluate([2, 4]) );
 
-      // p.281,2
-      var hiddenset = gp.buildhiddenset();
-      // console.log( gp.scorefunction(random1, hiddenset) );
-      // console.log( gp.scorefunction(random2, hiddenset) );
+        // var random2 = new gp.makerandomtree(2);
+        // console.log( random2.evaluate([5, 3]) );
+        // console.log( random2.evaluate([5, 20]) );
 
-      // p.284
-      // console.log("random2.display()");
-      // random2.display();
+        // p.281,2
+        // var hiddenset = gp.buildhiddenset();
+        // console.log( gp.scorefunction(random1, hiddenset) );
+        // console.log( gp.scorefunction(random2, hiddenset) );
 
-      // console.log("var muttree = gp.mutate(random2, 2);");
-      var muttree = new gp.mutate(random2, 2);
-      // muttree.display();
+        // p.284
+        // random2.display();
+        // var muttree = new gp.mutate(random2, 2);
+        // muttree.display();
 
-      // p.285
-      console.log( "// score (p.285)" );
-      console.log( "random2:", gp.scorefunction(random2, hiddenset) );
-      console.log( "muttree:", gp.scorefunction(muttree, hiddenset) );
+        // p.285
+        // console.log( "// score (p.285)" );
+        // console.log( "random2:", gp.scorefunction(random2, hiddenset) );
+        // console.log( "muttree:", gp.scorefunction(muttree, hiddenset) );
 
-      // p.286
-      // var random1 = new gp.makerandomtree(2);
-      // console.log(random1);
-      // random1.display();
+        // p.286
+        // var random1 = new gp.makerandomtree(2);
+        // random1.display();
 
-      // var random2 = new gp.makerandomtree(2);
-      // console.log(random2);
-      // random2.display();
+        // var random2 = new gp.makerandomtree(2);
+        // random2.display();
 
-      // var cross = new gp.crossover(random1, random2, undefined, 0);
-      // console.log(cross);
-      // cross.display();
+        // var cross = new gp.crossover(random1, random2, undefined, 0);
+        // cross.display();
+
+
+        // p.289
+        // var rf = gp.getrankfunction( gp.buildhiddenset() );
+        // gp.evolve(2, 500, rf, 5, 0.2, 0.1, 0.7, 0.1);
+
+        // p.292
+        var p1 = gp.makerandomtree(5);
+        var p2 = gp.makerandomtree(5);
+
+        // console.log( gp.gridgame([p1, p2]) );
+        var winner = gp.evolve(5, 100, gp.tournament, 20);
+        gp.gridgame([winner, new gp.humanplayer()]);
+
+      });
 
     }());
 
