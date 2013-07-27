@@ -1,4 +1,4 @@
-require(["jquery", "jquery.tabs", "ccchart", "../../lib/main"], function($) {
+require(["jquery", "jquery.tabs", "ccchart", "app", "../../lib/main"], function($) {
   $(function() {
 
     // タブ
@@ -52,6 +52,7 @@ require(["jquery", "jquery.tabs", "ccchart", "../../lib/main"], function($) {
 
       // textareaに入力されたjsonからオプションを作る
       var initOption = (function ($form) {
+        var $form = $form || $('#chapter2');
         var f = function () {
           var source = JSON.parse( $('[name="source"]', $form).first().val() ) || '';
           var $option = $('<option />');
@@ -424,7 +425,7 @@ require(["jquery", "jquery.tabs", "ccchart", "../../lib/main"], function($) {
         var p2 = gp.makerandomtree(5);
 
         // console.log( gp.gridgame([p1, p2]) );
-        var winner = gp.evolve(5, 100, gp.tournament, 20);
+        var winner = gp.evolve(5, 100, gp.tournament, 2);
         gp.gridgame([winner, new gp.humanplayer()]);
 
       });

@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+</head>
+<body>
+<script>
+
+jQuery(function ($) {
+
+  $('#choose').on('click', function () {
+
+    src = $(this).prev().val();
+    $source = $('#source');
+    $result = $('#result');
+    $count = $('#count');
+    $url = $('#url');
+
+    var cars;
+
+    $.ajax({url: src}).done(function (data) {
+
+      cars = data;
+
+      // ランキングでソート(一応)
+      cars.sort(function (a, b) {
+        return (+a.ranking < +b.ranking) ? -1 : 1;  // +を頭につけて数値だと明言
+      });
+
+      // 結果を消しておく
+      $result.empty();
+
+      // 全て表示
+      cars.forEach(function (e, i) {
+        var $body = $('<tr>').append(
+          $('<td>').text(e.ranking),
+          $('<td>').text(e.manufacturer),
+          $('<td>').append($('<img>').attr('src', e.image)),
+          $('<td>').append($('<a>').text(e.name).attr('href', e.url)),
+          $('<td>').text(e.power),
+          $('<td>').text(e.drive_system)
+        );
+        $result.append($body);
+      });
+
+      $result.prepend(
+        $('<tr>').append(
+          $('<th>').text("順位"),
+          $('<th>').text("メーカー"),
+          $('<th>').text("画像"),
+          $('<th>').text("名前"),
+          $('<th>').text("動力"),
+          $('<th>').text("駆動方式")
+        )
+      );
+
+      $source.text(JSON.stringify(data, null, "    "));
+      $count.text(data.length);
+      $url.text(src);
+    });
+  });
+
+});
+
+</script>
+
+<h1>json</h1>
+<select>
+  <option value="./json/kei-car.json">軽自動車</option>
+  <option value="./json/compact.json">コンパクトカー</option>
+  <option value="./json/minivan.json">ミニバン</option>
+  <option value="./json/stationwagon.json">ワゴン</option>
+  <option value="./json/sedan.json">セダン</option>
+  <option value="./json/coupe.json">クーペ</option>
+  <option value="./json/open.json">オープンカー</option>
+  <option value="./json/suv.json">SUV</option>
+</select>
+<input type="submit" id="choose">
+
+<p><span id="count">0</span>個のデータ<span id="url">./json/</span></p>
+
+<style>
+table, pre {
+  width: 100%;
+  min-height: 50px;
+  padding: 20px;
+  border: 1px solid;
+}
+table {
+  border-color: red;
+}
+pre {
+  border-color: blue;
+}
+</style>
+<table id="result"></table>
+<pre id="source"></pre>
+</body>
+</html>
