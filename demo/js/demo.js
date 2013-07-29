@@ -1,4 +1,4 @@
-require(["jquery", "jquery.tabs", "ccchart", "app", "../../lib/main"], function($) {
+require(["jquery", "jquery.tabs", "ccchart", "../../lib/main"], function($) {
   $(function() {
 
     // タブ
