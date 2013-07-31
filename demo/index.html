@@ -248,9 +248,10 @@
 
   <section id="chapterend">
     <form name="test" id="demo-form-chapterend">
-      <fieldset>
-        <legend>user input</legend><br>
-        <label>車（必須）:<br>
+
+      <fieldset id="search_field">
+        <legend>現在所有されている車</legend><br>
+        <label>
           <select id="search_cartype">
             <option value="">車種を選択して下さい</option>
             <option value="kei-car">軽自動車</option>
@@ -263,41 +264,17 @@
             <option value="suv">SUV</option>
           </select>
         </label>
+        and
         <input type="text" id="search" placeholder="検索語句">
-        <br><br><br>
-
-        <label>条件（任意）:</label><br><br>
-          <label>燃費
-            <select name="a">
-              <option>燃費を選択して下さい</option>
-            </select>
-          </label><br>
-          <label>価格
-            <select name="a">
-              <option>価格帯を選択して下さい</option>
-            </select>
-          </label><br>
-          <label>メーカー
-            <select name="b">
-              <option>メーカーを選択して下さい</option>
-              <option>ホンダ</option>
-              <option>日産</option>
-              <option>トヨタ</option>
-            </select>
-          </label><br>
-          <label>定員
-            <select name="a">
-              <option>定員を選択して下さい</option>
-            </select>
-          </label><br>
-          <label>新車or中古車: <input type="radio" name="newold" value="new">新車 <input type="radio" name="newold" value="old">中古車
-          </label>
-
-
       </fieldset>
 
-      <fieldset>
-        <legend>output</legend>
+      <fieldset id="condition_field">
+        <legend>推薦する自動車をメーカーで絞る</legend>
+        <div id="condition_manufacturer"></div>
+      </fieldset>
+
+      <fieldset id="result_field">
+        <legend>検索結果</legend>
         <table name="carresult" id="search_result"></table>
         <pre id="source"></pre>
         <div id="idJsonArea">

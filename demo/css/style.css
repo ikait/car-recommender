@@ -1,6 +1,8 @@
-﻿body {
+body {
   margin: 0 auto;
-  width: 700px;
+  width: 860px;
+  font-size: 14px;
+  color: #333;
 }
 
 nav ul {
@@ -11,7 +13,6 @@ nav ul {
 nav a {
   display: block;
   float: left;
-  color: #333;
   text-decoration: none;
   padding: 10px 20px;
   border-width: 1px 1px 0 0;
@@ -121,4 +122,119 @@ pre {
 
 #chapter5 input[name*="ave_"] {
   font-size: 16px;
+}
+
+
+/**
+ * 検索
+ */
+
+#search_field {
+  text-align: center;
+}
+
+#search_field legend {
+  text-align: left;
+}
+
+#search_field #search {
+  text-align: left;
+  width: 30%;
+  font-size: 14px;
+  padding: 8px 10px;
+  line-height: 1;
+  margin-left: 5px;
+}
+
+/**
+ * 条件
+ */
+
+#condition_field {
+
+}
+
+#condition_manufacturer label {
+  display: block;
+  float: left;
+  width: 25%;
+}
+
+/**
+ * 検索結果
+ */
+
+#result_field {
+
+}
+
+#search_result {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+#search_result td {
+  padding: 0 7px;
+}
+
+#search_result td:first-child,
+#search_result td:last-child {
+  text-align: center;
+}
+
+#search_result .no {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+#search_result .manufacturer,
+#search_result .url {
+  font-size: 12px;
+}
+
+#search_result .name {
+  font-size: 16px;
+  font-weight: bold;
+  padding: 10px 0;
+}
+
+#search_result .new_car_price,
+#search_result .used_car_price {
+  font-size: 12px;
+  padding: 0 12px 0 0;
+}
+
+#search_result .new_car_price strong,
+#search_result .used_car_price strong {
+  padding: 0 3px;
+  font-size: 14px;
+}
+
+#search_result .power,
+#search_result .drive_system,
+#search_result .transmission,
+#search_result .sale_status {
+  font-size: 12px;
+}
+
+#search_result .sale_status {
+  font-weight: bold;
+  display: block;
+  margin-top: 10px;
+}
+
+#search_result tr {
+  border: 3px solid;
+  border-color: white;
+  box-sizing: border-box;
+}
+
+#search_result tr:hover {
+  cursor: pointer;
+  background-color: #e5e5e5;
+}
+
+#search_result tr.selected {
+  border-color: #ccccff;
+  background-color: #F0F8FF;
 }
