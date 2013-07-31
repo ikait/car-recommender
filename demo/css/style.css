@@ -171,6 +171,12 @@ pre {
   width: 25%;
 }
 
+#condition_manufacturer input[type="button"] {
+  display: inline-block;
+  width: 33.3%;
+  margin: 10px 0;
+}
+
 /**
  * 検索結果
  */
