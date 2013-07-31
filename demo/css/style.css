@@ -5,6 +5,17 @@ body {
   color: #333;
 }
 
+.message {
+  position: fixed;
+  width: 100%;
+  left: 0;
+  text-align: center;
+  top: 0;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+}
+
 nav ul {
   padding: 0;
   list-style: none;
